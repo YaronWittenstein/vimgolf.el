@@ -1,7 +1,7 @@
 ;; http://www.vimgolf.com/challenges/5cf62aa56c09760009d6b2f3
 
 (defun transform ()
-  (with-temp-buffer
+  (with-temp-file "output"
     (insert-file-contents "input")
     (goto-char (point-min))
     (while (not (eobp))
@@ -9,7 +9,6 @@
         (progn
           (end-of-line)
           (insert ";")))
-      (forward-line))
-      (write-file "output")))
+      (forward-line))))
 
 (transform)
