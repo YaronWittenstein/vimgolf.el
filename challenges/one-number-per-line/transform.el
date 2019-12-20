@@ -1,3 +1,5 @@
+; http://www.vimgolf.com/challenges/56fb2e75ccffcc0009026473
+
 (defun transform ()
   (with-temp-file "output"
     (insert-file-contents "input")

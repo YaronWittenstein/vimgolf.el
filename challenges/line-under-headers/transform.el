@@ -1,4 +1,4 @@
-;; http://www.vimgolf.com/challenges/5d7f565deac0df000cfc2154
+; http://www.vimgolf.com/challenges/5d7f565deac0df000cfc2154
 
 (defun transform ()
   (with-temp-file "output"
