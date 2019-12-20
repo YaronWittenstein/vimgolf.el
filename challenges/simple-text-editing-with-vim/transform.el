@@ -6,10 +6,8 @@
 	  (progn 
 	    (forward-line 2)
 	    (delete-region (line-beginning-position) (line-end-position))
-	    (forward-line)
-	    (copy-region-as-kill (line-beginning-position -1) (line-end-position -1))
-	    (yank)
-	    ))
+	    (copy-region-as-kill (line-beginning-position 0) (line-end-position 0))
+	    (yank)))
 	(forward-line))))
 
 (transform)
