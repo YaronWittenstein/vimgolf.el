@@ -4,11 +4,12 @@
     (while (not (eobp))
       (if (looking-at "# ")
 	  (progn 
+	    (forward-line 2)
+	    (delete-region (line-beginning-position) (line-end-position))
 	    (forward-line)
-	    (kill-whole-line) 
+	    (copy-region-as-kill (line-beginning-position -1) (line-end-position -1))
 	    (yank)
-	    (yank)
-	    (forward-line))
-	(forward-line)))))
+	    ))
+	(forward-line))))
 
 (transform)
