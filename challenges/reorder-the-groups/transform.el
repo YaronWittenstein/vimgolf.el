@@ -2,7 +2,7 @@
 
 (defun transform ()
   (with-temp-file "output"
-    (setq-local vegteables nil)
+    (setq-local vegtables nil)
     (insert-file-contents "input")
     (while (not (eobp))
       (if (looking-at "# vegetable")
@@ -12,16 +12,19 @@
 	      (forward-line))
 	    (forward-line)
 	    (setq-local region-end (point))
-	    (cons
-	      (buffer-substring region-start region-end)
-	      vegteables)
+	    (setq-local vegtables
+		(cons
+		  (buffer-substring region-start region-end)
+		  vegtables))
 	    (kill-region region-start region-end)
 	    (forward-line))
 	(forward-line)))
 
-    (while vegteables
-      (let ((vegteable (pop vegteables)))
-	(goto-char (point-min))
-	(insert vegteable)))))
+    (setq-local vegtables (reverse vegtables))
+
+    (while vegtables
+      (let ((veg (pop vegtables)))
+	(goto-char (point-max))
+	(insert veg)))))
 
 (transform)
